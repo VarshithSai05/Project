@@ -19,5 +19,15 @@ public class AnswerService {
 		repo.save(theAnswer);
 		System.out.println("New answer has been added.");
 	}
+	
+	public void updateAnswerByAnswerId(Integer answerId,Answer theAnswer) {
+		repo.save(theAnswer);
+		System.out.println("Answer "+answerId+" has been updated.");
+	}
+	
+	public void deleteAnswerByanswerId(Integer answerId) {
+		repo.deleteById(answerId);
+		System.out.println("Answer "+answerId+" has been deleted");
+	}
 
 }
