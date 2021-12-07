@@ -32,11 +32,11 @@ public class Answer {
 	@ManyToMany(mappedBy = "questionAnswered")
 	private List<Question> questions= new ArrayList<>();
 	
-//	public Answer(Integer id, String answerTab, Integer questionId) {
-//		this.id = id;
-//		this.answerTab = answerTab;
-//		this.questions = new Question(
-//	}
+	public Answer(Integer id, String answerTab, Integer questionId) {
+		this.id = id;
+		this.answerTab = answerTab;
+		this.questions.add(new Question(questionId, ""));
+	}
 	
 
 }

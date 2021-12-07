@@ -19,7 +19,7 @@ import lombok.NoArgsConstructor;
 
 @NoArgsConstructor
 @AllArgsConstructor
-//@Data
+@Data
 @Entity
 public class Question {
 	@Id
@@ -41,30 +41,11 @@ public class Question {
 		this.questionTab=questionTab;
 		this.user=new User(userId, "","","");
 	}
-
-	public Integer getId() {
-		return id;
+//	This constructor is required while creating manyToMany relationship with Answer entity
+	public Question(Integer id, String questionTab) {
+		this.id=id;
+		this.questionTab=questionTab;
 	}
 
-	public void setId(Integer id) {
-		this.id = id;
-	}
-
-	public String getQuestionTab() {
-		return questionTab;
-	}
-
-	public void setQuestionTab(String questionTab) {
-		this.questionTab = questionTab;
-	}
-
-	public User getUser() {
-		return user;
-	}
-
-	public void setUser(User user) {
-		this.user = user;
-	}
-	
 
 }
