@@ -1,0 +1,173 @@
+{
+	"info": {
+		"_postman_id": "a89a00bc-b00e-4c7c-ad8e-8a9e33c745a9",
+		"name": "ForumApp",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Get All Users",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/user",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"user"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "signUp",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n        \"userName\": \"Akshay Kumar\",\r\n        \"email\": \"akshay@gmail.com\",\r\n        \"password\": \"hello@123\"\r\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/signUp",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"signUp"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "AddQuestionBasedOnUserId",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{   \r\n    \"questionTab\":\"Should I pursue my acting career? \"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/question/6",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"question",
+						"6"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get All QuestionsBased on userID",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/question/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"question",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DeleteQuestionByID",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/deleteQuestion/3",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"deleteQuestion",
+						"3"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "AddAnswerByQuestionId",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\":2,\r\n    \"answerTab\":\"No, you shouldn't marry at the age of 17.\",\r\n    \"userId\":3\r\n   \r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/addAnswer/5",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"addAnswer",
+						"5"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "showALLanswers",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/answer",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"answer"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
