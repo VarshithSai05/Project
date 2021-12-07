@@ -30,7 +30,7 @@ public class Answer {
 	private User user;
 
 	@ManyToMany(mappedBy = "questionAnswered")
-	private Set<Question> questions= new HashSet<>();
+	private List<Question> questions= new ArrayList<>();
 	
 //	public Answer(Integer id, String answerTab, Integer questionId) {
 //		this.id = id;

@@ -30,6 +30,11 @@ public class Question {
 	@ManyToOne
 	private User user;
 	
+	@ManyToMany
+	@JoinTable(name= "quesAnswered",
+			joinColumns = @JoinColumn(name="QuestionId"),
+			inverseJoinColumns = @JoinColumn(name="AnswerId"))
+	List<Answer> questionAnswered= new ArrayList<>();
 	
 	public Question (Integer id, String questionTab, Integer userId) {
 		this.id=id;
