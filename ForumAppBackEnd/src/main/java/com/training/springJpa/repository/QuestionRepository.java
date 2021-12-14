@@ -13,5 +13,6 @@ public interface QuestionRepository extends CrudRepository<Question, Integer> {
 	
 	List<Question> findQuestionByUserUserId(Integer userId);
 	
+//	Integer getUserIdByUserNameAndUserPassword(String userName, String password);
 
 }

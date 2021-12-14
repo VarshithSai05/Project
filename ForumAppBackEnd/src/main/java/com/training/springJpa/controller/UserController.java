@@ -55,7 +55,6 @@ public class UserController {
 	}
 
 	@PostMapping("login")
-//	@CrossOrigin(origins = "http://localhost:4200")
 	public User loginUser(@RequestBody User user) {
 		String tempEmail = user.getEmail();
 		String tempPass = user.getPassword();
