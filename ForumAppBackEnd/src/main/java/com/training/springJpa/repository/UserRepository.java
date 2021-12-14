@@ -10,6 +10,7 @@ public interface UserRepository extends CrudRepository<User, Integer> {
 
 	User findByEmail(String email);
 	
+//	This method is used for logging an user in.
 	User findByEmailAndPassword(String email,String password);
 	
 

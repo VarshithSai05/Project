@@ -2,6 +2,7 @@ package com.training.springJpa.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -20,19 +21,19 @@ public class UserController {
 
 	@Autowired
 	UserService service;
-	
+
 //	@GetMapping("/user/{'userName'}")
 //	Integer getUserByUserUserName(@PathVariable String userName) {
 //		return service.getUserIdByUserUserName(userName);
 //	}
 
-	@PostMapping("/signUp")
+	@PostMapping("/register")
 	User addUser(@RequestBody User user) throws Exception {
-		String tempEmailId= user.getEmail();
-		if(tempEmailId!=null && !"".equals(tempEmailId)) {
-			User userObj=service.fetchUserByEmailId(tempEmailId);
-			if(userObj!=null) {
-				throw new Exception("User with "+tempEmailId+" already exists!");
+		String tempEmailId = user.getEmail();
+		if (tempEmailId != null && !"".equals(tempEmailId)) {
+			User userObj = service.fetchUserByEmail(tempEmailId);
+			if (userObj != null) {
+				throw new Exception("User with " + tempEmailId + " already exists!");
 			}
 		}
 		return service.addUser(user);
@@ -42,30 +43,26 @@ public class UserController {
 	Iterable<User> showAllUsers() {
 		return service.showUsers();
 	}
-	
+
 	@PutMapping("update/{userId}")
-	User updateByUserId(@PathVariable Integer userId,@RequestBody User user) {
+	User updateByUserId(@PathVariable Integer userId, @RequestBody User user) {
 		return service.updateUserById(user, userId);
 	}
-	
+
 	@DeleteMapping("delete/{userId}")
 	void deleteUserById(@PathVariable Integer userId) {
 		service.deleteUserByUserId(userId);
 	}
 
-	@PostMapping("/login")
-	User logInUser(@RequestBody User user) throws Exception {
-		String tempEmail=user.getEmail();
-		String tempPass=user.getPassword();
-		User userObj=null;
-		
-		if(tempEmail !=null && tempPass !=null) {
-			service.fetchUserByEmailIdAndPassword(tempEmail, tempPass);
-		}
-		if(userObj==null) {
-			throw new Exception("Bad Credentials");
-		}
-			return userObj;
-	
+	@PostMapping("login")
+//	@CrossOrigin(origins = "http://localhost:4200")
+	public User loginUser(@RequestBody User user) {
+		String tempEmail = user.getEmail();
+		String tempPass = user.getPassword();
+//		User userObj = null;
+
+//		if (tempEmail != null && tempPass != null) {
+		return service.fetchUserByEmailAndPassword(tempEmail, tempPass);
+
 	}
 }
