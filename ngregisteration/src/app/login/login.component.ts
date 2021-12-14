@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { User } from '../User';
+import { UserServiceService } from '../user-service.service';
 
 
 @Component({
@@ -8,9 +10,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LoginComponent implements OnInit {
 
-  constructor() { }
+  user:User=new User();
+  message!:String;
+  uId!:Number;
+
+  constructor(private service:UserServiceService) { }
 
   ngOnInit(): void {
+  }
+  public loginNow():void{
+    this.service.doLogin(this.user).
+    subscribe(data=>{
+      this.message=data.userName,
+      this.uId=data.userId
+
+    });
   }
 
 }

@@ -1,13 +1,40 @@
-<p>login works!</p>
+<h2>login works!</h2>
 <hr>
-<form>    
+  <h3>{{message}} <br>
+    {{uId}}
+  </h3>
+<hr>
+<hr>
+<div class="container">
+    <div class="row">
+        <div class="col-lg-12 col-sm-12 col-xs-12"></div>
+        <form>
+            <fieldset>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input [(ngModel)]="user.email" type="text" name="email" id="email" class="form-control" placeholder="Enter your user name">
+                </div>
+                <div class="form-group">
+                    <label for="email">Password</label>
+                    <input  [(ngModel)]="user.password" type="text" name="password" id="password" class="form-control" placeholder="Enter your user name">
+                </div>
+                <div class="from-group">
+                    <input class="btn-btn-success" type="button" value="Login" (click)="loginNow()">
+                </div>
+            </fieldset>
+
+        </form>
+    </div>
+</div>
+
+<!-- <form>    
     <div class="form-group">
       <label for="email">Email address:</label>
-      <input type="email" class="form-control" id="email">
+      <input [(ngModel)="user.email"] type="email" class="form-control" id="email">
     </div>
     <div class="form-group">
-      <label for="pwd">Password:</label>
-      <input type="password" class="form-control" id="pwd">
+      <label for="password">Password:</label>
+      <input [(ngModel)="user.password"] type="password" class="form-control" id="pwd">
     </div>
-    <button type="submit" class="btn btn-primary">Login</button>
-  </form>
+    <button type="submit" class="btn btn-primary" (click)="loginNow()">Login</button>
+  </form> -->

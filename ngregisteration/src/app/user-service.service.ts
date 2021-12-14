@@ -6,9 +6,16 @@ import { User } from './User';
 })
 export class UserServiceService {
   urlToRegister:string="http://localhost:8081/register"
+  urlToLogin!:string;
+  
   constructor(private http:HttpClient) { }
 
   public doRegister(user:User){
     return this.http.post<User>(this.urlToRegister,user);
+  }
+
+  public doLogin(user:User){
+    this.urlToLogin="http://localhost:8081/login";
+    return this.http.post<User>(this.urlToLogin,user);
   }
 }
