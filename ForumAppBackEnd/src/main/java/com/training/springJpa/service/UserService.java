@@ -32,4 +32,12 @@ public class UserService {
 		repo.deleteById(userId);
 	}
 	
+	public User fetchUserByEmailId(String email) {
+		return repo.findByEmail(email);
+	}
+	
+	public User fetchUserByEmailIdAndPassword(String email,String password) {
+		return repo.findByEmailAndPassword(email,password);
+	}
+	
 }

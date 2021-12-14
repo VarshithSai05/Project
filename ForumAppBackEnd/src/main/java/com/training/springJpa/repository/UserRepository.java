@@ -7,7 +7,10 @@ import com.training.springJpa.entities.User;
 
 @Repository
 public interface UserRepository extends CrudRepository<User, Integer> {
+
+	User findByEmail(String email);
 	
-//	Integer getUserIdByUserUserName(String UserName);
+	User findByEmailAndPassword(String email,String password);
+	
 
 }

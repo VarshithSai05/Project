@@ -19,7 +19,6 @@ import lombok.NoArgsConstructor;
 
 @NoArgsConstructor
 @AllArgsConstructor
-@Data
 @Entity
 public class Question {
 	@Id
@@ -46,11 +45,44 @@ public class Question {
 		this.id=id;
 		this.questionTab=questionTab;
 	}
+
+	public Integer getId() {
+		return id;
+	}
+
+	public void setId(Integer id) {
+		this.id = id;
+	}
+
+	public String getQuestionTab() {
+		return questionTab;
+	}
+
+	public void setQuestionTab(String questionTab) {
+		this.questionTab = questionTab;
+	}
+
+	public User getUser() {
+		return user;
+	}
+
+	public void setUser(User user) {
+		this.user = user;
+	}
+
+	public List<Answer> getQuestionAnswered() {
+		return questionAnswered;
+	}
+
+	public void setQuestionAnswered(List<Answer> questionAnswered) {
+		this.questionAnswered = questionAnswered;
+	}
 	
 //	public Question(Integer id, Integer userId) {
 //		this.id=id;
 //		this.user.getUserId();
 //	}
 
+	
 
 }

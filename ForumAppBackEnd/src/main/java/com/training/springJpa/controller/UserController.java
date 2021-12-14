@@ -27,7 +27,14 @@ public class UserController {
 //	}
 
 	@PostMapping("/signUp")
-	User addUser(@RequestBody User user) {
+	User addUser(@RequestBody User user) throws Exception {
+		String tempEmailId= user.getEmail();
+		if(tempEmailId!=null && !"".equals(tempEmailId)) {
+			User userObj=service.fetchUserByEmailId(tempEmailId);
+			if(userObj!=null) {
+				throw new Exception("User with "+tempEmailId+" already exists!");
+			}
+		}
 		return service.addUser(user);
 	}
 
@@ -46,9 +53,19 @@ public class UserController {
 		service.deleteUserByUserId(userId);
 	}
 
-//	@RequestMapping("/")
-//	public String showIndex() {
-//		return "index";
-//	}
-
+	@PostMapping("/login")
+	User logInUser(@RequestBody User user) throws Exception {
+		String tempEmail=user.getEmail();
+		String tempPass=user.getPassword();
+		User userObj=null;
+		
+		if(tempEmail !=null && tempPass !=null) {
+			service.fetchUserByEmailIdAndPassword(tempEmail, tempPass);
+		}
+		if(userObj==null) {
+			throw new Exception("Bad Credentials");
+		}
+			return userObj;
+	
+	}
 }
