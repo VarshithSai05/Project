@@ -20,6 +20,11 @@ public class UserController {
 
 	@Autowired
 	UserService service;
+	
+//	@GetMapping("/user/{'userName'}")
+//	Integer getUserByUserUserName(@PathVariable String userName) {
+//		return service.getUserIdByUserUserName(userName);
+//	}
 
 	@PostMapping("/signUp")
 	User addUser(@RequestBody User user) {

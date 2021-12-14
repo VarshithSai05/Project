@@ -36,16 +36,21 @@ public class Question {
 			inverseJoinColumns = @JoinColumn(name="AnswerId"))
 	List<Answer> questionAnswered= new ArrayList<>();
 	
-	public Question (Integer id, String questionTab, Integer userId) {
-		this.id=id;
-		this.questionTab=questionTab;
-		this.user=new User(userId, "","","");
-	}
+//	public Question (Integer id, String questionTab, Integer userId) {
+//		this.id=id;
+//		this.questionTab=questionTab;
+//		this.user.getUserId();
+//	}
 //	This constructor is required while creating manyToMany relationship with Answer entity
 	public Question(Integer id, String questionTab) {
 		this.id=id;
 		this.questionTab=questionTab;
 	}
+	
+//	public Question(Integer id, Integer userId) {
+//		this.id=id;
+//		this.user.getUserId();
+//	}
 
 
 }

@@ -15,7 +15,7 @@ public class QuestionService {
 	@Autowired
 	QuestionRepository repo;
 
-	public List<Question> findQuestionsByUserUserId(Integer userId) {
+	public List<Question> findQuestionsByUserId(Integer userId) {
 		return repo.findQuestionByUserUserId(userId);
 	}
 

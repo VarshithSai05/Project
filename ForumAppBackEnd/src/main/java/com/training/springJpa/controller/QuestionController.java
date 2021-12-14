@@ -22,9 +22,9 @@ public class QuestionController {
 	@Autowired
 	QuestionService service;
 
-	@GetMapping("question/{UserUserId}")
-	List<Question> findQuestionByUserUserId(@PathVariable Integer UserUserId) {
-		return service.findQuestionsByUserUserId(UserUserId);
+	@GetMapping("question/{UserId}")
+	List<Question> findQuestionByUserId(@PathVariable Integer UserId) {
+		return service.findQuestionsByUserId(UserId);
 	}
 
 	@PostMapping("/question/{userId}")

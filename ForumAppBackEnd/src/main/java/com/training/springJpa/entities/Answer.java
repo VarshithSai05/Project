@@ -6,6 +6,8 @@ import java.util.List;
 import java.util.Set;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
@@ -23,8 +25,10 @@ import lombok.NoArgsConstructor;
 public class Answer {
 
 	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 	private String answerTab; 
+	private Integer userId;
 //	An answer can be given by multiple users.
 	@ManyToOne
 	private User user;
@@ -36,7 +40,9 @@ public class Answer {
 		this.id = id;
 		this.answerTab = answerTab;
 		this.questions.add(new Question(questionId, ""));
+//		this.questions.add(new Question(questionId, "", userId));
 	}
 	
+//	public Answer(Integer id, String answerTab,In)
 
 }

@@ -12,6 +12,10 @@ public class UserService {
 	@Autowired
 	UserRepository repo;
 	
+//	public Integer getUserIdByUserUserName(String userName) {
+//		return repo.getUserIdByUserUserName(userName);
+//	}
+	
 	public User addUser(User user) {
 		return repo.save(user);
 	}
