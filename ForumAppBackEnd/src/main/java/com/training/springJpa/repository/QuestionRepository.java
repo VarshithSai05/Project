@@ -11,7 +11,7 @@ import com.training.springJpa.entities.Question;
 @Repository
 public interface QuestionRepository extends CrudRepository<Question, Integer> {
 	
-	List<Question> findQuestionByUserUserId(Integer userId);
+	List<Question> findQuestionByUserId(Integer userId);
 	
 //	Integer getUserIdByUserNameAndUserPassword(String userName, String password);
 

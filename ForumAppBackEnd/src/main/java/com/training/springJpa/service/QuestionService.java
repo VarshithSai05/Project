@@ -16,7 +16,7 @@ public class QuestionService {
 	QuestionRepository repo;
 
 	public List<Question> findQuestionsByUserId(Integer userId) {
-		return repo.findQuestionByUserUserId(userId);
+		return repo.findQuestionByUserId(userId);
 	}
 
 	public Question addQuestion(Question question) {
@@ -31,5 +31,9 @@ public class QuestionService {
 		repo.deleteById(questionId);
 		System.out.println("Question has been deleted");
 
+	}
+
+	public Iterable<Question> getAllQuestions() {
+		return repo.findAll();
 	}
 }

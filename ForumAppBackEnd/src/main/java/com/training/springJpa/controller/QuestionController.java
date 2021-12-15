@@ -21,16 +21,21 @@ public class QuestionController {
 
 	@Autowired
 	QuestionService service;
-
-	@GetMapping("question/{UserId}")
+	
+	@GetMapping("/viewAllQuesitions")
+	Iterable<Question> getAllQuestions(){
+		return service.getAllQuestions();
+	}
+	
+	@GetMapping("/viewQuestion/{UserId}")
 	List<Question> findQuestionByUserId(@PathVariable Integer UserId) {
 		return service.findQuestionsByUserId(UserId);
 	}
 
 	@PostMapping("/question/{userId}")
-	Question addQuestion(@RequestBody Question theQuestion,@PathVariable Integer userId) {
+	void addQuestion(@RequestBody Question theQuestion,@PathVariable Integer userId) {
 		theQuestion.setUser(new User(userId,"","",""));
-		return service.addQuestion(theQuestion);
+		service.addQuestion(theQuestion);
 	}
 
 	@PutMapping("/question/{userId}")

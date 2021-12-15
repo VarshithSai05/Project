@@ -28,7 +28,7 @@ public class Answer {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 	private String answerTab; 
-	private Integer userId;
+//	private Integer userId;
 //	An answer can be given by multiple users.
 	@ManyToOne
 	private User user;
